@@ -5,6 +5,7 @@
 // Created: January 6, 2025
 // ----------------------------------------------------------------------
 
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace Practice.Models
@@ -24,11 +25,15 @@ namespace Practice.Models
         /// Gets or sets the name of the category
         /// </summary>
         [Required]
+        [MaxLength(30)]
+        [DisplayName("Category Name")]
         public string Name { get; set; }
 
         /// <summary>
         /// Gets or sets the display order of the category
         /// </summary>
+        [DisplayName("Display Order")]
+        [Range(1, 100, ErrorMessage = "Display order must be between 1 to 100")]
         public int DisplayOrder { get; set; }
     }
 }
